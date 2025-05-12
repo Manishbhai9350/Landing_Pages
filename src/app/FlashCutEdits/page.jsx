@@ -44,7 +44,7 @@ const page = () => {
       </section>
       <section className="z-50 relative page_2 pt-24 w-screen min-h-screen">
         <div className="offers-con w-full">
-          <h1 className="w-full text-center text-5xl sora-semibold text-[#E6A966]">
+          <h1 className="w-full text-center text-4xl sora-semibold text-[#E6A966]">
             Who Is This For
           </h1>
           <div className="offers mt-12 flex justify-between items-center px-6">
@@ -130,7 +130,7 @@ const page = () => {
                 alt="editing"
               />
             </div>
-            <h1 className="text-2xl text-[#E6A966] sora-semibold">
+            <h1 className="text-2xl w-fit text-[#E6A966] sora-semibold">
               Graphic Designing
             </h1>
           </div>
