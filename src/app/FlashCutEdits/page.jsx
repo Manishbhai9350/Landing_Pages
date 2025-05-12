@@ -37,7 +37,7 @@ const page = () => {
           <div className="video w-full h-[200px] bg-amber-700 m-2"></div>
         </div>
         <div className="home-cta mx-4 cursor-pointer flex justify-center items-center mt-20 w-[100%] h-[70px] bg-[#E6A966] rounded-sm">
-          <h1 className="text-2xl sora-semibold ">
+          <h1 className="text-[1.4rem] sora-semibold ">
             Hurry Up! Book A Free Call Now
           </h1>
         </div>
@@ -118,7 +118,7 @@ const page = () => {
                 alt="editing"
               />
             </div>
-            <h1 className="text-2xl text-[#E6A966] sora-semibold">
+            <h1 className="text-[1.4rem] text-[#E6A966] sora-semibold">
               Video Editing
             </h1>
           </div>
@@ -130,7 +130,7 @@ const page = () => {
                 alt="editing"
               />
             </div>
-            <h1 className="text-2xl w-fit text-[#E6A966] sora-semibold">
+            <h1 className="text-[1.4rem] w-fit text-[#E6A966] sora-semibold">
               Graphic Designing
             </h1>
           </div>
