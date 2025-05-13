@@ -35,16 +35,16 @@ const page = () => {
       review: `"Bahut agencies try ki thi, par Flashcut Edits ne actual mein meri video quality next level tak le gayi. Inka motion graphics aur thumbnails toh pura game change kar dete hain!"`,
     },
     {
-      dp: "/FlashCutEdits/girl2.jpg",
-      name: "Ananya R",
-      profession: "Content Creator, Mumbai",
-      review: `"Flashcut Edits has been a game-changer for me. From reels to long-form content, everything feels more polished and professional. Plus, they always deliver before the deadline!"`,
+      dp: "/FlashCutEdits/girl3.jpg",
+      name: "Nikita B",
+      profession: "Artis, Pune",
+      review: `"Flashcutedits did an amazing job editing my promo video. The transitions and effects looked professional, and they totally captured the vibe I was going for. Super fast turnaround too. Highly recommend!"`,
     },
     {
-      dp: "/FlashCutEdits/boy2.jpg",
-      name: "Rohit S",
-      profession: "Tech YouTuber, Delhi",
-      review: `"Bahut agencies try ki thi, par Flashcut Edits ne actual mein meri video quality next level tak le gayi. Inka motion graphics aur thumbnails toh pura game change kar dete hain!"`,
+      dp: "/FlashCutEdits/boy3.jpg",
+      name: "Virat K",
+      profession: "Social Media Manager, Haryana",
+      review: `"Flashcutedits nailed our social media graphics! Clean design, great use of color, and matched our brand perfectly. Quick revisions and smooth communication made the process easy."`,
     },
   ]);
 
