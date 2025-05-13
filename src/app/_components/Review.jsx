@@ -1,9 +1,9 @@
 import Image from "next/image";
 
 
-const Review = ({ name = "", review = "", profession = "", dp = "" }) => {
+const Review = ({ name = "", review = "", profession = "", dp = "",MobileHide=0}) => {
   return (
-    <div className="review py-4 p-2 relative w-[100%] sm:w-[350px] max-h-[500px]">
+    <div className={`review py-4 p-2 relative w-[100%] sm:w-[350px] min-h-[220px] max-h-[500px] ${MobileHide ? 'hidden sm:block' : 'block' } `}>
       <div className="bg border z-[51] rounded-sm border-[#ccc6c09e] w-full h-full top-0 left-0 absolute overflow-hidden">
         <Image
           className="object-cover opacity-10"

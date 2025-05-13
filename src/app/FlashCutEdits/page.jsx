@@ -6,6 +6,7 @@ import { TiTick } from "react-icons/ti";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Review from '../_components/Review'
+import FAQ from '../_components/FAQ'
 
 const page = () => {
   const [Reviews, setReviews] = useState([
@@ -20,6 +21,18 @@ const page = () => {
       name: "Jason B",
       profession: "Startup Founder, New York",
       review: `"Our promotional videos and IG reels were handled by Flashcut Edits and they nailed it! The storytelling, transitions, and graphics were top-tier. It saved my team tons of time and looked super clean."`,
+    },
+    {
+      dp: "/FlashCutEdits/girl2.jpg",
+      name: "Ananya R",
+      profession: "Content Creator, Mumbai",
+      review: `"Flashcut Edits has been a game-changer for me. From reels to long-form content, everything feels more polished and professional. Plus, they always deliver before the deadline!"`,
+    },
+    {
+      dp: "/FlashCutEdits/boy2.jpg",
+      name: "Rohit S",
+      profession: "Tech YouTuber, Delhi",
+      review: `"Bahut agencies try ki thi, par Flashcut Edits ne actual mein meri video quality next level tak le gayi. Inka motion graphics aur thumbnails toh pura game change kar dete hain!"`,
     },
     {
       dp: "/FlashCutEdits/girl2.jpg",
@@ -54,37 +67,7 @@ const page = () => {
     );
   });
 
-  useGSAP(() => {
-    const ServiceContainer = document.querySelectorAll(".services-con");
-    ServiceContainer.forEach((Service) => {
-      const DropDown = Service.querySelector(".video-editing-dropdown");
-      Service.addEventListener("click", (e) => {
-        let IsOpen = Service?.dataset?.open == "true";
-
-        gsap.killTweensOf(DropDown, Service);
-
-        if (IsOpen) {
-          const TL = gsap.timeline();
-          TL.to(DropDown, {
-            opacity: 0,
-          });
-          TL.set(DropDown, {
-            diplay: "none",
-          });
-          Service.dataset.open = "false";
-        } else {
-          const TL = gsap.timeline();
-          TL.set(DropDown, {
-            diplay: "flex",
-          });
-          TL.to(DropDown, {
-            opacity: 1,
-          });
-          Service.dataset.open = "true";
-        }
-      });
-    });
-  });
+  
 
   return (
     <main className="w-screen overflow-x-hidden relative text-white bg-[#111]">
@@ -122,6 +105,12 @@ const page = () => {
           className="home-cta mx-4 cursor-pointer flex justify-center items-center mt-6 w-[90%] h-[70px] bg-[#FF6D01] rounded-full"
         >
           <h1 className="text-[1.6rem] sora-bold ">Book A Call Now</h1>
+        </div>
+        <div
+          className="wa-cta mx-4 cursor-pointer leading-none flex flex-col justify-center items-center mt-6 w-[90%] h-[70px] bg-green-400 rounded-full"
+        >
+          <h1 className="text-[1.6rem] sora-bold ">Chat On Whatsapp</h1>
+          <p>[+91 9867009961]</p>
         </div>
       </section>
       <section className="z-50 relative page_2 pt-4 w-screen h-[auto]">
@@ -213,7 +202,7 @@ const page = () => {
               </h1>
             </div>
             <div
-              /* style={{display:'none'}} */ className="video-editing-dropdown mt-2 justify-start items-start w-full h-fit grid sm:place-items-center grid-cols-1 sm:grid-cols-2  gap-1"
+               className="video-editing-dropdown mt-2 justify-start items-start w-full h-fit grid sm:place-items-center grid-cols-1 sm:grid-cols-2  gap-1"
             >
               <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
                 <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
@@ -318,38 +307,8 @@ const page = () => {
               </h1>
             </div>
             <div
-              /* style={{display:'none'}} */ className="video-editing-dropdown  mt-2 justify-start items-start w-full h-fit grid grid-cols-1 sm:grid-cols-2  gap-1 sm:place-items-center"
+               className="video-editing-dropdown  mt-2 justify-start items-start w-full h-fit grid grid-cols-1 sm:grid-cols-2  gap-1 sm:place-items-center"
             >
-              <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
-                <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
-                  <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
-                    <TiTick size={26} />
-                  </p>
-                </div>
-                <p className="opacity-100 sora-medium">
-                  Graphic Design Services:
-                </p>
-              </div>
-              <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
-                <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
-                  <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
-                    <TiTick size={26} />
-                  </p>
-                </div>
-                <p className="opacity-100 sora-medium">
-                  Agencies (Marketing, Branding, Influencer)
-                </p>
-              </div>
-              <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
-                <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
-                  <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
-                    <TiTick size={26} />
-                  </p>
-                </div>
-                <p className="opacity-100 sora-medium">
-                  We handle creative graphic design for
-                </p>
-              </div>
               <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
                 <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
                   <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
@@ -469,15 +428,34 @@ const page = () => {
           </div>
         </div>
       </section>
+      <div className="wa-cn w-full h-[auto] flex justify-center mt-4">
+      <div
+          className="home-cta cursor-pointer leading-none flex flex-col justify-center items-center mt-2 mb-4 max-w-6xl w-[100%] h-[70px] bg-green-400 rounded-full"
+        >
+          <h1 className="text-[1.6rem] sora-bold ">Chat On Whatsapp</h1>
+          <p>[+91 9867009961]</p>
+        </div>
+      </div>
       <section className="z-50 relative page_3 clients-review w-full  py-4 px-2 flex justify-center items-start flex-wrap gap-5">
         <h1 className="w-full text-center text-[#FF6D01] text-4xl sora-bold">
           Testimonials
         </h1>
         {Reviews.length > 0 &&
           Reviews.map((rev, Idx) => {
-            return <Review {...rev} key={Idx} />
+            return <Review {...rev} MobileHide={Idx > 3} key={Idx} />
           })}
       </section>
+      <section className="faqs w-full">
+        <FAQ />
+      </section>
+      <div className="wa-cn w-full h-[auto] flex justify-center">
+      <div
+          className="home-cta cursor-pointer leading-none flex flex-col justify-center items-center mt-2 mb-4 max-w-5xl w-[100%] h-[70px] bg-green-400 rounded-full"
+        >
+          <h1 className="text-[1.6rem] sora-bold ">Chat On Whatsapp</h1>
+          <p>[+91 9867009961]</p>
+        </div>
+      </div>
     </main>
   );
 };
