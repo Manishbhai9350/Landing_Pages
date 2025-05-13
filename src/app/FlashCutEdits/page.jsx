@@ -109,7 +109,7 @@ const page = () => {
         <div
           className="wa-cta mx-4 cursor-pointer leading-none flex flex-col justify-center items-center mt-6 w-[90%] h-[70px] bg-green-400 rounded-full"
         >
-          <h1 className="text-[1.6rem] sora-bold ">Chat On Whatsapp</h1>
+          <h1 className="text-[1.8rem] sora-bold ">Chat On Whatsapp</h1>
           <p>[+91 9867009961]</p>
         </div>
       </section>
@@ -432,7 +432,7 @@ const page = () => {
       <div
           className="home-cta cursor-pointer leading-none flex flex-col justify-center items-center mt-2 mb-4 max-w-6xl w-[100%] h-[70px] bg-green-400 rounded-full"
         >
-          <h1 className="text-[1.6rem] sora-bold ">Chat On Whatsapp</h1>
+          <h1 className="text-[1.8rem] sora-bold ">Chat On Whatsapp</h1>
           <p>[+91 9867009961]</p>
         </div>
       </div>
@@ -452,7 +452,7 @@ const page = () => {
       <div
           className="home-cta cursor-pointer leading-none flex flex-col justify-center items-center mt-2 mb-4 max-w-5xl w-[100%] h-[70px] bg-green-400 rounded-full"
         >
-          <h1 className="text-[1.6rem] sora-bold ">Chat On Whatsapp</h1>
+          <h1 className="text-[1.8rem] sora-bold ">Chat On Whatsapp</h1>
           <p>[+91 9867009961]</p>
         </div>
       </div>
