@@ -157,11 +157,11 @@ const page = () => {
           </div>
         </div>
       </section>
-      <section className="z-50 relative page_3 clients-review w-full min-h-screen p-10 flex justify-start items-start flex-wrap gap-5">
+      <section className="z-50 relative page_3 clients-review w-full min-h-screen py-4 px-2 flex justify-start items-start flex-wrap gap-5">
         <h1 className="w-full text-center text-[#FF6D01] text-4xl sora-bold">
           Testimonials
         </h1>
-        <div className="review p-4 relative w-[100%] max-h-[350px]">
+        <div className="review py-4 p-2 relative w-[100%] max-h-[350px]">
           <div className="bg border z-[51] rounded-sm border-[#e6a8669e] w-full h-full top-0 left-0 absolute overflow-hidden">
             <Image
               className="object-cover opacity-10"
