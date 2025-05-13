@@ -1,62 +1,90 @@
 "use client";
-import {useRef} from 'react';
+import { useRef, useState } from "react";
 import Image from "next/image";
 import "./flashcut.css";
 import { TiTick } from "react-icons/ti";
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import DropdownMenu from '../_components/DropDown';
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import Review from '../_components/Review'
 
 const page = () => {
+  const [Reviews, setReviews] = useState([
+    {
+      dp: "/FlashCutEdits/girl1.jpg",
+      name: "Sarah M",
+      profession: "YouTube Coach, California",
+      review: `"I hired Flashcut Edits for my YouTube Shorts and within 2 weeks, I saw a massive jump in engagement! They understand how to make content pop. Definitely recommend them for creators who want professional edits without the hassle."`,
+    },
+    {
+      dp: "/FlashCutEdits/boy1.jpeg",
+      name: "Jason B",
+      profession: "Startup Founder, New York",
+      review: `"Our promotional videos and IG reels were handled by Flashcut Edits and they nailed it! The storytelling, transitions, and graphics were top-tier. It saved my team tons of time and looked super clean."`,
+    },
+    {
+      dp: "/FlashCutEdits/girl2.jpg",
+      name: "Ananya R",
+      profession: "Content Creator, Mumbai",
+      review: `"Flashcut Edits has been a game-changer for me. From reels to long-form content, everything feels more polished and professional. Plus, they always deliver before the deadline!"`,
+    },
+    {
+      dp: "/FlashCutEdits/boy2.jpg",
+      name: "Rohit S",
+      profession: "Tech YouTuber, Delhi",
+      review: `"Bahut agencies try ki thi, par Flashcut Edits ne actual mein meri video quality next level tak le gayi. Inka motion graphics aur thumbnails toh pura game change kar dete hain!"`,
+    },
+  ]);
 
+  const BookCallRef = useRef(null);
 
-  const BookCallRef = useRef(null)
-  
   useGSAP(() => {
-    gsap.fromTo(BookCallRef.current,{
-      x:-20
-    },{
-      x:20,
-      duration:1,
-      repeat:-1,
-      yoyo:true,
-      ease:"power2",
-      yoyoEase:'power2'
-    })
-  })
+    gsap.fromTo(
+      BookCallRef.current,
+      {
+        x: -20,
+      },
+      {
+        x: 20,
+        duration: 1,
+        repeat: -1,
+        yoyo: true,
+        ease: "power2",
+        yoyoEase: "power2",
+      }
+    );
+  });
 
   useGSAP(() => {
-    const ServiceContainer = document.querySelectorAll('.services-con')
-    ServiceContainer.forEach(Service => {
-      const DropDown = Service.querySelector('.video-editing-dropdown')
-      Service.addEventListener('click',e => {
-        let IsOpen = Service?.dataset?.open == 'true'
+    const ServiceContainer = document.querySelectorAll(".services-con");
+    ServiceContainer.forEach((Service) => {
+      const DropDown = Service.querySelector(".video-editing-dropdown");
+      Service.addEventListener("click", (e) => {
+        let IsOpen = Service?.dataset?.open == "true";
 
-        gsap.killTweensOf(DropDown,Service)
+        gsap.killTweensOf(DropDown, Service);
 
-        if(IsOpen) {
-          const TL = gsap.timeline()
-          TL.to(DropDown,{
-            opacity:0,
-          })
-          TL.set(DropDown,{
-            diplay:'none'
-          })
-          Service.dataset.open = 'false'
+        if (IsOpen) {
+          const TL = gsap.timeline();
+          TL.to(DropDown, {
+            opacity: 0,
+          });
+          TL.set(DropDown, {
+            diplay: "none",
+          });
+          Service.dataset.open = "false";
         } else {
-          const TL = gsap.timeline()
-          TL.set(DropDown,{
-            diplay:'flex'
-          })
-          TL.to(DropDown,{
-            opacity:1,
-          })
-          Service.dataset.open = 'true'
+          const TL = gsap.timeline();
+          TL.set(DropDown, {
+            diplay: "flex",
+          });
+          TL.to(DropDown, {
+            opacity: 1,
+          });
+          Service.dataset.open = "true";
         }
-
-      })
-    })
-  })
+      });
+    });
+  });
 
   return (
     <main className="w-screen overflow-x-hidden relative text-white bg-[#111]">
@@ -89,7 +117,10 @@ const page = () => {
           </div>
           <div className="video w-full h-[200px] bg-amber-700 m-1"></div>
         </div>
-        <div ref={BookCallRef} className="home-cta mx-4 cursor-pointer flex justify-center items-center mt-6 w-[90%] h-[70px] bg-[#FF6D01] rounded-full">
+        <div
+          ref={BookCallRef}
+          className="home-cta mx-4 cursor-pointer flex justify-center items-center mt-6 w-[90%] h-[70px] bg-[#FF6D01] rounded-full"
+        >
           <h1 className="text-[1.6rem] sora-bold ">Book A Call Now</h1>
         </div>
       </section>
@@ -164,53 +195,51 @@ const page = () => {
         <h1 className="w-full text-center text-[#FF6D01] text-6xl my-4 sora-bold">
           Our Services
         </h1>
-        <div data-open='false' className="services-con w-full gap-4 flex flex-wrap px-2 my-5">
+        <div
+          data-open="false"
+          className="services-con w-full gap-4 flex flex-wrap px-2 my-5"
+        >
           <div className="w-[100%] cursor-pointer p-3 flex flex-col justify-center items-center  h-auto border-white  border bg-[#505355] rounded-sm">
-            <div className='w-full h-fit flex items-center justify-center gap-4'>
+            <div className="w-full h-fit flex items-center justify-center gap-4">
               <div className="icon h-[50px] aspect-square relative text-sm">
-              <Image
-                fill
-                src="/FlashCutEdits/video-editing.svg"
-                alt="editing"
-              />
+                <Image
+                  fill
+                  src="/FlashCutEdits/video-editing.svg"
+                  alt="editing"
+                />
+              </div>
+              <h1 className="text-[1.4rem] text-[#E6A966] sora-bold">
+                Video Editing
+              </h1>
             </div>
-            <h1 className="text-[1.4rem] text-[#E6A966] sora-bold">
-              Video Editing
-            </h1>
-            </div>
-            <div /* style={{display:'none'}} */ className="video-editing-dropdown mt-2 justify-start items-start w-full h-fit grid sm:place-items-center grid-cols-1 sm:grid-cols-2  gap-1">
-            <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
-
+            <div
+              /* style={{display:'none'}} */ className="video-editing-dropdown mt-2 justify-start items-start w-full h-fit grid sm:place-items-center grid-cols-1 sm:grid-cols-2  gap-1"
+            >
+              <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
                 <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
                   <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
                     <TiTick size={26} />
                   </p>
                 </div>
-                <p className="opacity-100 sora-medium">
-                  Short-form content
-                </p>
+                <p className="opacity-100 sora-medium">Short-form content</p>
               </div>
-            <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
+              <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
                 <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
                   <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
                     <TiTick size={26} />
                   </p>
                 </div>
-                <p className="opacity-100 sora-medium">
-                  Long-form videos
-                </p>
+                <p className="opacity-100 sora-medium">Long-form videos</p>
               </div>
-            <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
+              <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
                 <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
                   <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
                     <TiTick size={26} />
                   </p>
                 </div>
-                <p className="opacity-100 sora-medium">
-                  Documentary editing
-                </p>
+                <p className="opacity-100 sora-medium">Documentary editing</p>
               </div>
-            <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
+              <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
                 <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
                   <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
                     <TiTick size={26} />
@@ -220,7 +249,7 @@ const page = () => {
                   Educational & tech content
                 </p>
               </div>
-            <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
+              <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
                 <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
                   <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
                     <TiTick size={26} />
@@ -230,7 +259,7 @@ const page = () => {
                   Ads & promotional videos
                 </p>
               </div>
-            <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
+              <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
                 <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
                   <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
                     <TiTick size={26} />
@@ -240,7 +269,7 @@ const page = () => {
                   Corporate & business edits
                 </p>
               </div>
-            <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
+              <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
                 <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
                   <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
                     <TiTick size={26} />
@@ -250,17 +279,15 @@ const page = () => {
                   Engaging storytelling edits
                 </p>
               </div>
-            <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
+              <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
                 <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
                   <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
                     <TiTick size={26} />
                   </p>
                 </div>
-                <p className="opacity-100 sora-medium">
-                  Cinematic video edits
-                </p>
+                <p className="opacity-100 sora-medium">Cinematic video edits</p>
               </div>
-            <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
+              <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
                 <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
                   <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
                     <TiTick size={26} />
@@ -270,25 +297,30 @@ const page = () => {
                   High-level motion graphics
                 </p>
               </div>
-          </div>
+            </div>
           </div>
         </div>
-        <div data-open='false' className="services-con transition-all duration-150 w-full gap-4 flex flex-wrap px-2 my-5">
+        <div
+          data-open="false"
+          className="services-con transition-all duration-150 w-full gap-4 flex flex-wrap px-2 my-5"
+        >
           <div className="w-[100%] cursor-pointer p-3 flex flex-col justify-center items-center  h-auto border-white  border bg-[#505355] rounded-sm">
-            <div className='w-full h-fit flex items-center justify-center gap-4'>
+            <div className="w-full h-fit flex items-center justify-center gap-4">
               <div className="icon h-[50px] aspect-square relative text-sm">
-              <Image
-                fill
-                src="/FlashCutEdits/graphic-designing.svg"
-                alt="editing"
-              />
+                <Image
+                  fill
+                  src="/FlashCutEdits/graphic-designing.svg"
+                  alt="editing"
+                />
+              </div>
+              <h1 className="text-[1.4rem] text-[#E6A966] sora-bold">
+                Graphic Designing
+              </h1>
             </div>
-            <h1 className="text-[1.4rem] text-[#E6A966] sora-bold">
-              Graphic Designing
-            </h1>
-            </div>  
-            <div /* style={{display:'none'}} */ className="video-editing-dropdown  mt-2 justify-start items-start w-full h-fit grid grid-cols-1 sm:grid-cols-2  gap-1 sm:place-items-center">
-            <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
+            <div
+              /* style={{display:'none'}} */ className="video-editing-dropdown  mt-2 justify-start items-start w-full h-fit grid grid-cols-1 sm:grid-cols-2  gap-1 sm:place-items-center"
+            >
+              <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
                 <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
                   <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
                     <TiTick size={26} />
@@ -296,10 +328,9 @@ const page = () => {
                 </div>
                 <p className="opacity-100 sora-medium">
                   Graphic Design Services:
-
                 </p>
               </div>
-            <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
+              <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
                 <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
                   <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
                     <TiTick size={26} />
@@ -309,27 +340,25 @@ const page = () => {
                   Agencies (Marketing, Branding, Influencer)
                 </p>
               </div>
-            <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
+              <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
                 <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
                   <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
                     <TiTick size={26} />
                   </p>
                 </div>
                 <p className="opacity-100 sora-medium">
-                  We  handle creative graphic design for
+                  We handle creative graphic design for
                 </p>
               </div>
-            <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
+              <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
                 <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
                   <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
                     <TiTick size={26} />
                   </p>
                 </div>
-                <p className="opacity-100 sora-medium">
-                  YouTube thumbnails
-                </p>
+                <p className="opacity-100 sora-medium">YouTube thumbnails</p>
               </div>
-            <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
+              <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
                 <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
                   <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
                     <TiTick size={26} />
@@ -339,17 +368,15 @@ const page = () => {
                   Instagram cover images
                 </p>
               </div>
-            <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
+              <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
                 <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
                   <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
                     <TiTick size={26} />
                   </p>
                 </div>
-                <p className="opacity-100 sora-medium">
-                  Channel banners
-                </p>
+                <p className="opacity-100 sora-medium">Channel banners</p>
               </div>
-            <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
+              <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
                 <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
                   <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
                     <TiTick size={26} />
@@ -359,76 +386,59 @@ const page = () => {
                   YouTube channel covers
                 </p>
               </div>
-            <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
+              <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
                 <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
                   <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
                     <TiTick size={26} />
                   </p>
                 </div>
-                <p className="opacity-100 sora-medium">
-                  Logo designing
-                </p>
+                <p className="opacity-100 sora-medium">Logo designing</p>
               </div>
-            <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
+              <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
                 <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
                   <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
                     <TiTick size={26} />
                   </p>
                 </div>
-                <p className="opacity-100 sora-medium">
-                  Posters & creatives
-                </p>
+                <p className="opacity-100 sora-medium">Posters & creatives</p>
               </div>
-          </div>
+            </div>
           </div>
         </div>
       </section>
-      
+
       <section className="z-50 relative bg-[#313335]  services w-full px-2 py-2">
         <h1 className="w-full text-center text-[#FF6D01] text-5xl my-4 sora-bold">
           Why Choose Us
         </h1>
-        <div className="services-con transition-all duration-150 w-full gap-4 flex flex-wrap px-5 my-5">
-          <div className="w-[100%] p-3 flex justify-center items-center gap-4 h-auto bg-[#505355] border rounded-sm">
+        <div className="services-con transition-all duration-150 w-full gap-4 grid grid-cols-1 sm:grid-cols-2 px-5 my-5">
+          <div className="w-[100%] p-3 flex justify-start sm:flex-1 items-center gap-4 h-auto bg-[#505355] border rounded-sm">
             <div className="icon h-[50px] aspect-square relative text-sm">
-              <Image
-                fill
-                src="/FlashCutEdits/time2.svg"
-                alt="time2"
-              />
+              <Image fill src="/FlashCutEdits/time2.svg" alt="time2" />
             </div>
             <p className="pl-2 text-[1rem] text-white gap-4 leading-[1.3rem] font-light sora-medium ">
-                  Scroll-Stopping Edits that grab attention in the first 3
-                  seconds
-                </p>
+              Scroll-Stopping Edits that grab attention in the first 3 seconds
+            </p>
           </div>
-              
-          <div className="w-[100%] p-3 flex justify-start items-center gap-4 h-auto border-white  border bg-[#505355] rounded-sm">
+
+          <div className="w-[100%] p-3 flex justify-start sm:flex-1 items-center gap-4 h-auto border-white  border bg-[#505355] rounded-sm">
             <div className="icon h-[50px] aspect-square relative text-sm">
-              <Image
-                fill
-                src="/FlashCutEdits/time.svg"
-                alt="time"
-              />
+              <Image fill src="/FlashCutEdits/time.svg" alt="time" />
             </div>
             <p className="pl-2 text-[1rem] text-white gap-4 leading-[1.3rem] font-light sora-medium ">
-                  Fast Delivery without compromising on quality
-                </p>
+              Fast Delivery without compromising on quality
+            </p>
           </div>
-          <div className="w-[100%] p-3 flex justify-start items-center gap-4 h-auto border-white  border bg-[#505355] rounded-sm">
+          <div className="w-[100%] p-3 flex justify-start sm:flex-1 items-center gap-4 h-auto border-white  border bg-[#505355] rounded-sm">
             <div className="icon h-[50px] aspect-square relative text-sm">
-              <Image
-                fill
-                src="/FlashCutEdits/wallet.svg"
-                alt="editing"
-              />
+              <Image fill src="/FlashCutEdits/wallet.svg" alt="editing" />
             </div>
             <p className="pl-2 text-[1rem] text-white gap-4 leading-[1.3rem] font-light sora-medium ">
-                  Budget Friendly
-                </p>
+              Budget Friendly
+            </p>
           </div>
-              
-          <div className="w-[100%] p-3 flex justify-start items-center gap-4 h-auto border-white  border bg-[#505355] rounded-sm">
+
+          <div className="w-[100%] p-3 flex justify-start sm:flex-1 items-center gap-4 h-auto border-white  border bg-[#505355] rounded-sm">
             <div className="icon h-[50px] aspect-square relative text-sm">
               <Image
                 fill
@@ -437,158 +447,36 @@ const page = () => {
               />
             </div>
             <p className="pl-2 text-[1rem] text-white gap-4 leading-[1.3rem] font-light sora-medium ">
-                  Worked With Multiple Creators & Brands across different niches
-                </p>
+              Worked With Multiple Creators & Brands across different niches
+            </p>
           </div>
-          <div className="w-[100%] p-3 flex justify-start items-center gap-4 h-auto border-white  border bg-[#505355] rounded-sm">
+          <div className="w-[100%] p-3 flex justify-start sm:flex-1 items-center gap-4 h-auto border-white  border bg-[#505355] rounded-sm">
             <div className="icon h-[50px] aspect-square relative text-sm">
-              <Image
-                fill
-                src="/FlashCutEdits/growth.svg"
-                alt="editing"
-              />
+              <Image fill src="/FlashCutEdits/growth.svg" alt="editing" />
             </div>
             <p className="pl-2 text-[1rem] text-white gap-4 leading-[1.3rem] font-light sora-medium ">
-                   Creative Concepts + Strategic Cuts to boost engagement
+              Creative Concepts + Strategic Cuts to boost engagement
+            </p>
+          </div>
 
-                </p>
-          </div>
-              
-          <div className="w-[100%] p-3 flex justify-start items-center gap-4 h-auto border-white  border bg-[#505355] rounded-sm">
+          <div className="w-[100%] p-3 flex justify-start sm:flex-1 items-center gap-4 h-auto border-white  border bg-[#505355] rounded-sm">
             <div className="icon h-[50px] aspect-square relative text-sm">
-              <Image
-                fill
-                src="/FlashCutEdits/result.svg"
-                alt="editing"
-              />
+              <Image fill src="/FlashCutEdits/result.svg" alt="editing" />
             </div>
             <p className="pl-2 text-[1rem] text-white gap-4 leading-[1.3rem] font-light sora-medium ">
-                    Result-Driven Designs made to increase clicks, views & conversions
-                </p>
+              Result-Driven Designs made to increase clicks, views & conversions
+            </p>
           </div>
         </div>
       </section>
-      <section className="z-50 relative page_3 clients-review w-full min-h-screen py-4 px-2 flex justify-start items-start flex-wrap gap-5">
+      <section className="z-50 relative page_3 clients-review w-full  py-4 px-2 flex justify-center items-start flex-wrap gap-5">
         <h1 className="w-full text-center text-[#FF6D01] text-4xl sora-bold">
           Testimonials
         </h1>
-        <div className="review py-4 p-2 relative w-[100%] max-h-[350px]">
-          <div className="bg border z-[51] rounded-sm border-[#e6a8669e] w-full h-full top-0 left-0 absolute overflow-hidden">
-            <Image
-              className="object-cover opacity-10"
-              fill
-              src="/FlashCutEdits/golden_bg.webp"
-              alt="bg"
-            />
-          </div>
-          <div className="client-info flex justify-start items-start gap-4 relative z-[52] w-full h-[60px] ">
-            <div className="client-dp relative h-[80%] aspect-square overflow-hidden rounded-full">
-              <Image
-                className="object-cover"
-                fill
-                src="/FlashCutEdits/golden_bg.webp"
-                alt="bg"
-              />
-            </div>
-            <div className="namspace">
-              <div className="name">
-                <h1 className="sora-bold">John Doe</h1>
-              </div>
-              <div className="profession">
-                <p className="text-sm opacity-70 sora-medium">
-                  Senior Software Engineer
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="client-review relative mt-2 z-[52]">
-            <p className="text-[.9rem] opacity-90 tracking-wide sora-medium">
-              "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit
-              aliquid corporis doloremque! Quas veritatis optio repellendus.
-              Accusantium alias aut similique aperiam culpa error deserunt,
-              consectetur quas porro pariatur eaque asperiores cum repellat!
-              Doloribus harum dolores delectus sed ratione autem praesentium!"
-            </p>
-          </div>
-        </div>
-        <div className="review p-4 relative w-[100%] max-h-[350px]">
-          <div className="bg border z-[51] rounded-sm border-[#e6a8669e] w-full h-full top-0 left-0 absolute overflow-hidden">
-            <Image
-              className="object-cover opacity-10"
-              fill
-              src="/FlashCutEdits/golden_bg.webp"
-              alt="bg"
-            />
-          </div>
-          <div className="client-info flex justify-start items-start gap-4 relative z-[52] w-full h-[60px] ">
-            <div className="client-dp relative h-[80%] aspect-square overflow-hidden rounded-full">
-              <Image
-                className="object-cover"
-                fill
-                src="/FlashCutEdits/golden_bg.webp"
-                alt="bg"
-              />
-            </div>
-            <div className="namspace">
-              <div className="name">
-                <h1 className="sora-bold">John Doe</h1>
-              </div>
-              <div className="profession">
-                <p className="text-sm opacity-70 sora-medium">
-                  Senior Software Engineer
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="client-review relative mt-2 z-[52]">
-            <p className="text-[.9rem] opacity-90 tracking-wide sora-medium">
-              "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit
-              aliquid corporis doloremque! Quas veritatis optio repellendus.
-              Accusantium alias aut similique aperiam culpa error deserunt,
-              consectetur quas porro pariatur eaque asperiores cum repellat!
-              Doloribus harum dolores delectus sed ratione autem praesentium!"
-            </p>
-          </div>
-        </div>
-        <div className="review p-4 relative w-[100%] max-h-[350px]">
-          <div className="bg border z-[51] rounded-sm border-[#e6a8669e] w-full h-full top-0 left-0 absolute overflow-hidden">
-            <Image
-              className="object-cover opacity-10"
-              fill
-              src="/FlashCutEdits/golden_bg.webp"
-              alt="bg"
-            />
-          </div>
-          <div className="client-info flex justify-start items-start gap-4 relative z-[52] w-full h-[60px] ">
-            <div className="client-dp relative h-[80%] aspect-square overflow-hidden rounded-full">
-              <Image
-                className="object-cover"
-                fill
-                src="/FlashCutEdits/golden_bg.webp"
-                alt="bg"
-              />
-            </div>
-            <div className="namspace">
-              <div className="name">
-                <h1 className="sora-bold">John Doe</h1>
-              </div>
-              <div className="profession">
-                <p className="text-sm opacity-70 sora-medium">
-                  Senior Software Engineer
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="client-review relative mt-2 z-[52]">
-            <p className="text-[.9rem] opacity-90 tracking-wide sora-medium">
-              "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit
-              aliquid corporis doloremque! Quas veritatis optio repellendus.
-              Accusantium alias aut similique aperiam culpa error deserunt,
-              consectetur quas porro pariatur eaque asperiores cum repellat!
-              Doloribus harum dolores delectus sed ratione autem praesentium!"
-            </p>
-          </div>
-        </div>
+        {Reviews.length > 0 &&
+          Reviews.map((rev, Idx) => {
+            return <Review {...rev} key={Idx} />
+          })}
       </section>
     </main>
   );
