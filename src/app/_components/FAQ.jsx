@@ -4,25 +4,33 @@ import { FaPlus, FaMinus } from 'react-icons/fa'
 
 const faqs = [
   {
-    question: 'I’m just starting out, is this program suitable for me?',
-    answer: 'Absolutely! This program is designed for beginners and will guide you step-by-step.'
+    question: 'What kind of video editing services do you offer?',
+    answer: 'We provide everything from short-form content like Reels, Shorts, TikToks to long-form YouTube videos, podcast editing, educational content, ads, and cinematic edits. Basically, if it’s a video—we can edit it!'
   },
   {
-    question: 'Will I be able to attract international clients right away?',
-    answer: 'With consistent effort and by applying the strategies taught, you’ll be on the right path.'
+    question: 'How do I send my raw footage and get the final edited video?',
+    answer: 'Simple! Once you book a call, we’ll share a Google Drive or Dropbox link where you can upload your footage. We’ll discuss your vision and then deliver the final edits through the same platform.'
   },
   {
-    question: 'What kind of support will I get after the masterclass?',
-    answer: 'You’ll get access to a community and additional resources to help you implement everything.'
+    question: ' How much time will it take to edit my video?',
+    answer: 'Turnaround time depends on video length and complexity. For short-form content, we usually deliver within 24-48 hours. Long-form videos may take 3-5 days.'
   },
   {
-    question: 'How long will it take to see results?',
-    answer: 'It depends on your consistency, but many participants see progress within a few weeks.'
+    question: 'Can I ask for revisions if I don’t like something?',
+    answer: 'Absolutely! We offer up to 2 free revisions to make sure you get exactly what you’re looking for.'
   },
   {
-    question: 'Can I use these strategies if I don’t have an agency or team?',
-    answer: 'Yes! These strategies are built for solo freelancers and small businesses too.'
-  }
+    question: 'What are your charges for video editing and graphic design?',
+    answer: 'Pricing varies based on your project type. Book a free call with us and we’ll give you a custom quote based on your requirements.'
+  },
+  {
+    question: 'Do you offer monthly or bulk packages?',
+    answer: 'Yes, we do! We offer discounted monthly plans for content creators, agencies, and brands that need consistent editing and design services.'
+  },
+  {
+    question: 'I’m not from India. Can I still work with Flashcut Edits?',
+    answer: ' Definitely! We work with international clients from the US, UK, UAE, Canada, and more. We are fully remote and globally accessible.'
+  },
 ]
 
 export default function FAQ() {
@@ -52,7 +60,7 @@ export default function FAQ() {
               {openIndex === idx ? <FaMinus size={14} /> : <FaPlus size={14} />}
             </button>
             {openIndex === idx && (
-              <div className="px-4 pb-4 text-sm text-white/70">
+              <div className="px-4 pb-4 text-sm text-white/80">
                 {faq.answer}
               </div>
             )}

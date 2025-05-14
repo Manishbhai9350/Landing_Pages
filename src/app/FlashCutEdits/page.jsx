@@ -109,8 +109,15 @@ const page = () => {
         <div
           className="wa-cta mx-4 cursor-pointer leading-none flex flex-col justify-center items-center mt-6 w-[90%] h-[70px] bg-green-400 rounded-full"
         >
+          <a
+          href="https://wa.me/9867009961"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-center w-full "
+          >
           <h1 className="text-[1.8rem] sora-bold ">Chat On Whatsapp</h1>
           <p>[+91 9867009961]</p>
+          </a>
         </div>
       </section>
       <section className="z-50 relative page_2 pt-4 w-screen h-[auto]">
@@ -428,12 +435,19 @@ const page = () => {
           </div>
         </div>
       </section>
-      <div className="wa-cn w-full h-[auto] flex justify-center mt-4">
+      <div className="wa-cn relative z-50 w-full h-[auto] flex justify-center mt-4">
       <div
-          className="home-cta cursor-pointer leading-none flex flex-col justify-center items-center mt-2 mb-4 max-w-6xl w-[100%] h-[70px] bg-green-400 rounded-full"
+          className="wa-cta mx-4 cursor-pointer leading-none flex flex-col justify-center items-center mt-6 w-[90%] h-[70px] bg-green-400 rounded-full"
         >
+          <a
+          href="https://wa.me/9867009961"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-center w-full "
+          >
           <h1 className="text-[1.8rem] sora-bold ">Chat On Whatsapp</h1>
           <p>[+91 9867009961]</p>
+          </a>
         </div>
       </div>
       <section className="z-50 relative page_3 clients-review w-full  py-4 px-2 flex justify-center items-start flex-wrap gap-5">
@@ -448,12 +462,19 @@ const page = () => {
       <section className="faqs w-full">
         <FAQ />
       </section>
-      <div className="wa-cn w-full h-[auto] flex justify-center">
+      <div className="wa-cn relative z-50 w-full h-[auto] flex justify-center my-4">
       <div
-          className="home-cta cursor-pointer leading-none flex flex-col justify-center items-center mt-2 mb-4 max-w-5xl w-[100%] h-[70px] bg-green-400 rounded-full"
+          className="wa-cta mx-4 cursor-pointer leading-none flex flex-col justify-center items-center  w-[90%] h-[70px] bg-green-400 rounded-full"
         >
+          <a
+          href="https://wa.me/9867009961"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-center w-full "
+          >
           <h1 className="text-[1.8rem] sora-bold ">Chat On Whatsapp</h1>
           <p>[+91 9867009961]</p>
+          </a>
         </div>
       </div>
     </main>
