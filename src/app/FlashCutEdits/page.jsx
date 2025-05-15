@@ -32,19 +32,20 @@ const page = () => {
       dp: "/FlashCutEdits/boy2.jpg",
       name: "Rohit S",
       profession: "Tech YouTuber, Delhi",
-      review: `"Bahut agencies try ki thi, par Flashcut Edits ne actual mein meri video quality next level tak le gayi. Inka motion graphics aur thumbnails toh pura game change kar dete hain!"`,
+      review: `"Many agencies tried, but Flashcut Edits truly took my video quality to the next level. Their motion graphics and thumbnails are complete game-changers!"`,
+      review1:`"Tried many agencies, but Flashcut Edits actually "`
     },
     {
       dp: "/FlashCutEdits/girl3.jpg",
       name: "Nikita B",
-      profession: "Artis, Pune",
-      review: `"Flashcutedits did an amazing job editing my promo video. The transitions and effects looked professional, and they totally captured the vibe I was going for. Super fast turnaround too. Highly recommend!"`,
+      profession: "Artist, Pune",
+      review: `"Flashcut Edits. did an amazing job editing my promo video. The transitions and effects looked professional, and they totally captured the vibe I was going for. Super fast turnaround too. Highly recommend!"`,
     },
     {
       dp: "/FlashCutEdits/boy3.jpg",
       name: "Virat K",
       profession: "Social Media Manager, Haryana",
-      review: `"Flashcutedits nailed our social media graphics! Clean design, great use of color, and matched our brand perfectly. Quick revisions and smooth communication made the process easy."`,
+      review: `"Flashcut Edits. nailed our social media graphics! Clean design, great use of color, and matched our brand perfectly. Quick revisions and smooth communication made the process easy."`,
     },
   ]);
 
@@ -89,8 +90,8 @@ const page = () => {
                 <span className="text-[#ff6647] sora-bold">
                   content creators,
                 </span>{" "}
-                <span className="text-[#ff6647] sora-bold">coaches</span> and{" "}
-                <span className="text-[#ff6647] sora-bold">bussiness</span>.
+                <span className="text-[#ff6647] sora-bold">coaches,</span> and{" "}
+                <span className="text-[#ff6647] sora-bold">business</span>
               </h1>
               <h1 className="text-xl text-center pt-5">
                 <span className="sora-medium">Boost Your Results with </span>
