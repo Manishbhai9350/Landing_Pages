@@ -4,9 +4,12 @@ import Image from "next/image";
 import "./flashcut.css";
 import { TiTick } from "react-icons/ti";
 import { useGSAP } from "@gsap/react";
+import Review from "../_components/Review";
+import FAQ from "../_components/FAQ";
+import Link from "next/link";
 import gsap from "gsap";
-import Review from '../_components/Review'
-import FAQ from '../_components/FAQ'
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger)
 
 const page = () => {
   const [Reviews, setReviews] = useState([
@@ -33,7 +36,7 @@ const page = () => {
       name: "Rohit S",
       profession: "Tech YouTuber, Delhi",
       review: `"Many agencies tried, but Flashcut Edits truly took my video quality to the next level. Their motion graphics and thumbnails are complete game-changers!"`,
-      review1:`"Tried many agencies, but Flashcut Edits actually "`
+      review1: `"Tried many agencies, but Flashcut Edits actually "`,
     },
     {
       dp: "/FlashCutEdits/girl3.jpg",
@@ -50,6 +53,7 @@ const page = () => {
   ]);
 
   const BookCallRef = useRef(null);
+  const StickyBookCallRef = useRef(null);
 
   useGSAP(() => {
     gsap.fromTo(
@@ -66,9 +70,24 @@ const page = () => {
         yoyoEase: "power2",
       }
     );
+    ScrollTrigger.create({
+      trigger:'.page_2',
+      start:'top 20%',
+      endTrigger:'.faqs',
+      end:'top -100%',
+      markers:true,
+      onEnter(){
+        gsap.set(StickyBookCallRef.current,{
+          display:'flex'
+        })
+      },
+      onLeaveBack(){
+        gsap.set(StickyBookCallRef.current,{
+          display:'none'
+        })
+      }
+    })
   });
-
-  
 
   return (
     <main className="w-screen overflow-x-hidden relative text-white bg-[#111]">
@@ -80,6 +99,16 @@ const page = () => {
           Transform Your Videos into Scroll-Stopping Content
         </h1>
       </nav>
+      <Link
+          ref={StickyBookCallRef}
+          target="_blank"
+          href="https://calendly.com/jaitanishq222/video-editing-consultation"
+          className="fixed bottom-0 left-1/2 -translate-x-1/2 flex justify-center items-center z-[70] w-[100vw] h-[80px] bg-[#232323]"
+        >
+          <div className="home-cta mx-4 cursor-pointer flex justify-center items-center  w-[90vw] h-[70px] bg-[#FF6D01] rounded-full">
+            <h1 className="text-[1.6rem] sora-bold ">Book A Call Now</h1>
+          </div>
+        </Link>
       <section className="z-50 relative page_1  pt-16 w-screen min-h-screen flex flex-col items-center justify-start">
         <div className="home-content flex w-full flex-col gap-14 h-[auto] mt-10">
           <div className="headings flex-2">
@@ -101,23 +130,24 @@ const page = () => {
           </div>
           <div className="video w-full h-[200px] bg-amber-700 m-1"></div>
         </div>
-        <div
+        <Link
           ref={BookCallRef}
-          className="home-cta mx-4 cursor-pointer flex justify-center items-center mt-6 w-[90%] h-[70px] bg-[#FF6D01] rounded-full"
-        >
-          <h1 className="text-[1.6rem] sora-bold ">Book A Call Now</h1>
-        </div>
-        <div
-          className="wa-cta mx-4 cursor-pointer leading-none flex flex-col justify-center items-center mt-6 w-[90%] h-[70px] bg-green-400 rounded-full"
-        >
-          <a
-          href="https://wa.me/9867009961"
           target="_blank"
-          rel="noopener noreferrer"
-          className="text-center w-full "
+          href="https://calendly.com/jaitanishq222/video-editing-consultation"
+        >
+          <div className="home-cta mx-4 cursor-pointer flex justify-center items-center mt-6 w-[90vw] h-[70px] bg-[#FF6D01] rounded-full">
+            <h1 className="text-[1.6rem] sora-bold ">Book A Call Now</h1>
+          </div>
+        </Link>
+        <div className="wa-cta mx-4 cursor-pointer leading-none flex flex-col justify-center items-center mt-6 w-[90%] h-[70px] bg-green-400 rounded-full">
+          <a
+            href="https://wa.me/9867009961"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-center w-full "
           >
-          <h1 className="text-[1.8rem] sora-bold ">Chat On Whatsapp</h1>
-          <p>[+91 9867009961]</p>
+            <h1 className="text-[1.8rem] sora-bold ">Chat On Whatsapp</h1>
+            <p>[+91 9867009961]</p>
           </a>
         </div>
       </section>
@@ -209,9 +239,7 @@ const page = () => {
                 Video Editing
               </h1>
             </div>
-            <div
-               className="video-editing-dropdown mt-2 justify-start items-start w-full h-fit grid sm:place-items-center grid-cols-1 sm:grid-cols-2  gap-1"
-            >
+            <div className="video-editing-dropdown mt-2 justify-start items-start w-full h-fit grid sm:place-items-center grid-cols-1 sm:grid-cols-2  gap-1">
               <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
                 <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
                   <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
@@ -314,9 +342,7 @@ const page = () => {
                 Graphic Designing
               </h1>
             </div>
-            <div
-               className="video-editing-dropdown  mt-2 justify-start items-start w-full h-fit grid grid-cols-1 sm:grid-cols-2  gap-1 sm:place-items-center"
-            >
+            <div className="video-editing-dropdown  mt-2 justify-start items-start w-full h-fit grid grid-cols-1 sm:grid-cols-2  gap-1 sm:place-items-center">
               <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
                 <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
                   <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
@@ -437,17 +463,15 @@ const page = () => {
         </div>
       </section>
       <div className="wa-cn relative z-50 w-full h-[auto] flex justify-center mt-4">
-      <div
-          className="wa-cta mx-4 cursor-pointer leading-none flex flex-col justify-center items-center mt-6 w-[90%] h-[70px] bg-green-400 rounded-full"
-        >
+        <div className="wa-cta mx-4 cursor-pointer leading-none flex flex-col justify-center items-center mt-6 w-[90%] h-[70px] bg-green-400 rounded-full">
           <a
-          href="https://wa.me/9867009961"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-center w-full "
+            href="https://wa.me/9867009961"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-center w-full "
           >
-          <h1 className="text-[1.8rem] sora-bold ">Chat On Whatsapp</h1>
-          <p>[+91 9867009961]</p>
+            <h1 className="text-[1.8rem] sora-bold ">Chat On Whatsapp</h1>
+            <p>[+91 9867009961]</p>
           </a>
         </div>
       </div>
@@ -457,24 +481,22 @@ const page = () => {
         </h1>
         {Reviews.length > 0 &&
           Reviews.map((rev, Idx) => {
-            return <Review {...rev} MobileHide={Idx > 3} key={Idx} />
+            return <Review {...rev} MobileHide={Idx > 3} key={Idx} />;
           })}
       </section>
       <section className="faqs w-full">
         <FAQ />
       </section>
       <div className="wa-cn relative z-50 w-full h-[auto] flex justify-center my-4">
-      <div
-          className="wa-cta mx-4 cursor-pointer leading-none flex flex-col justify-center items-center  w-[90%] h-[70px] bg-green-400 rounded-full"
-        >
+        <div className="wa-cta mx-4 cursor-pointer leading-none flex flex-col justify-center items-center  w-[90%] h-[70px] bg-green-400 rounded-full">
           <a
-          href="https://wa.me/9867009961"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-center w-full "
+            href="https://wa.me/9867009961"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-center w-full "
           >
-          <h1 className="text-[1.8rem] sora-bold ">Chat On Whatsapp</h1>
-          <p>[+91 9867009961]</p>
+            <h1 className="text-[1.8rem] sora-bold ">Chat On Whatsapp</h1>
+            <p>[+91 9867009961]</p>
           </a>
         </div>
       </div>
