@@ -75,7 +75,6 @@ const page = () => {
       start:'top 20%',
       endTrigger:'.faqs',
       end:'top -100%',
-      markers:true,
       onEnter(){
         gsap.set(StickyBookCallRef.current,{
           display:'flex'
