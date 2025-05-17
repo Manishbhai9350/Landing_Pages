@@ -9,7 +9,7 @@ import FAQ from "../_components/FAQ";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 const page = () => {
   const [Reviews, setReviews] = useState([
@@ -71,21 +71,21 @@ const page = () => {
       }
     );
     ScrollTrigger.create({
-      trigger:'.page_2',
-      start:'top 20%',
-      endTrigger:'.faqs',
-      end:'top -100%',
-      onEnter(){
-        gsap.set(StickyBookCallRef.current,{
-          display:'flex'
-        })
+      trigger: ".page_2",
+      start: "top 20%",
+      endTrigger: ".faqs",
+      end: "top -100%",
+      onEnter() {
+        gsap.set(StickyBookCallRef.current, {
+          display: "flex",
+        });
       },
-      onLeaveBack(){
-        gsap.set(StickyBookCallRef.current,{
-          display:'none'
-        })
-      }
-    })
+      onLeaveBack() {
+        gsap.set(StickyBookCallRef.current, {
+          display: "none",
+        });
+      },
+    });
   });
 
   return (
@@ -99,17 +99,17 @@ const page = () => {
         </h1>
       </nav>
       <Link
-          ref={StickyBookCallRef}
-          target="_blank"
-          href="https://calendly.com/jaitanishq222/video-editing-consultation"
-          className="fixed bottom-0 left-1/2 -translate-x-1/2 flex justify-center items-center z-[70] w-[100vw] h-[80px] bg-[#232323]"
-        >
-          <div className="home-cta mx-4 cursor-pointer flex justify-center items-center  w-[90vw] h-[70px] bg-[#FF6D01] rounded-full">
-            <h1 className="text-[1.6rem] sora-bold ">Book A Call Now</h1>
-          </div>
-        </Link>
+        ref={StickyBookCallRef}
+        target="_blank"
+        href="https://calendly.com/jaitanishq222/video-editing-consultation"
+        className="fixed hidden bottom-0 left-1/2 -translate-x-1/2  justify-center items-center z-[70] w-[100vw] h-[80px] bg-[#232323]"
+      >
+        <div className="home-cta mx-4 cursor-pointer flex justify-center items-center  w-[90vw] h-[70px] bg-[#FF6D01] rounded-full">
+          <h1 className="text-[1.6rem] sora-bold ">Book A Call Now</h1>
+        </div>
+      </Link>
       <section className="z-50 relative page_1  pt-16 w-screen min-h-screen flex flex-col items-center justify-start">
-        <div className="home-content flex w-full flex-col gap-14 h-[auto] mt-10">
+        <div className="home-content flex w-full flex-col gap-4 h-[auto] mt-10">
           <div className="headings flex-2">
             <div className="heading">
               <h1 className="text-4xl sora-bold capitalize px-2 text-center text-white">
@@ -127,7 +127,22 @@ const page = () => {
               </h1>
             </div>
           </div>
-          <div className="video w-full h-[200px] bg-amber-700 m-1"></div>
+          <div className="video relative w-full h-[250px] md:h-[400px] bg-amber-700">
+            <iframe
+              src="https://www.youtube.com/embed/6UlZk2ur0OI"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+              }}
+            />
+          </div>
         </div>
         <Link
           ref={BookCallRef}
