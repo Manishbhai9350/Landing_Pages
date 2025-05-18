@@ -56,6 +56,11 @@ const page = () => {
   const StickyBookCallRef = useRef(null);
 
   useGSAP(() => {
+    gsap.fromTo(StickyBookCallRef.currenr,{
+       x:-20
+     },{
+       x:20,duration:1,repeat:-1,yoyo:true,ease:"power2",yoyoEase:"power2"
+     })
     gsap.fromTo(
       BookCallRef.current,
       {
