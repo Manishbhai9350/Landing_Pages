@@ -113,7 +113,7 @@ const page = () => {
           <h1 className="text-[1.6rem] sora-bold ">Book A Call Now</h1>
         </div>
       </Link>
-      <section className="z-50 relative page_1  pt-16 w-screen min-h-screen flex flex-col items-center justify-start">
+      <section className="z-50 relative page_1  pt-4 w-screen min-h-screen flex flex-col items-center justify-start">
         <div className="home-content flex w-full flex-col gap-4 h-[auto] mt-10">
           <div className="headings flex-2">
             <div className="heading">
