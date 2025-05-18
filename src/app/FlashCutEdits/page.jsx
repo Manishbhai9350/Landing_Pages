@@ -54,9 +54,10 @@ const page = () => {
 
   const BookCallRef = useRef(null);
   const StickyBookCallRef = useRef(null);
+  const WAbtnRef = useRef(null);
 
   useGSAP(() => {
-    gsap.fromTo(StickyBookCallRef.currenr,{
+    gsap.fromTo(WAbtnRef.current,{
        x:-20
      },{
        x:20,duration:1,repeat:-1,yoyo:true,ease:"power2",yoyoEase:"power2"
@@ -158,7 +159,7 @@ const page = () => {
             <h1 className="text-[1.6rem] sora-bold ">Book A Call Now</h1>
           </div>
         </Link>
-        <div className="wa-cta mx-4 cursor-pointer leading-none flex flex-col justify-center items-center mt-6 w-[90%] h-[70px] bg-green-400 rounded-full">
+        <div ref={WAbtnRef} className="wa-cta mx-4 relative cursor-pointer leading-none flex flex-col justify-center items-center mt-6 w-[90%] h-[70px] bg-green-400 rounded-full">
           <a
             href="https://wa.me/9867009961"
             target="_blank"
