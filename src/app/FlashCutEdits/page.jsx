@@ -111,7 +111,7 @@ const page = () => {
         className="fixed hidden bottom-0 left-1/2 -translate-x-1/2  justify-center items-center z-[70] w-[100vw] h-[80px] bg-[#232323]"
       >
         <div className="home-cta mx-4 cursor-pointer flex justify-center items-center  w-[90vw] h-[70px] bg-[#FF6D01] rounded-full">
-          <h1 className="text-[1.6rem] sora-bold ">Book A Call Now</h1>
+          <h1 className="text-[1.6rem] sora-bold ">Book A Free Call</h1>
         </div>
       </Link>
       <section className="z-50 relative page_1  pt-[55px] w-screen min-h-screen flex flex-col items-center justify-start">
@@ -156,7 +156,7 @@ const page = () => {
           href="https://calendly.com/jaitanishq222/video-editing-consultation"
         >
           <div className="home-cta mx-4 cursor-pointer flex justify-center items-center mt-6 w-[90vw] h-[70px] bg-[#FF6D01] rounded-full">
-            <h1 className="text-[1.6rem] sora-bold ">Book A Call Now</h1>
+            <h1 className="text-[1.6rem] sora-bold ">Book A Free Call</h1>
           </div>
         </Link>
         <div ref={WAbtnRef} className="wa-cta mx-4 relative cursor-pointer leading-none flex flex-col justify-center items-center mt-6 w-[90%] h-[70px] bg-green-400 rounded-full">
@@ -507,7 +507,7 @@ const page = () => {
       <section className="faqs w-full">
         <FAQ />
       </section>
-      <div className="wa-cn relative z-50 w-full h-[auto] flex justify-center my-4">
+      <div className="wa-cn relative z-50 w-full h-[auto] mb-[70px] flex justify-center my-4">
         <div className="wa-cta mx-4 cursor-pointer leading-none flex flex-col justify-center items-center  w-[90%] h-[70px] bg-green-400 rounded-full">
           <a
             href="https://wa.me/9867009961"
