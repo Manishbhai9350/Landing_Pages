@@ -93,7 +93,7 @@ const page = () => {
       <div className="bg fixed z-10 top-1/2 left-1/2 -translate-1/2 w-screen h-screen">
         <div className="bg-in w-[100vw] h-[100vh]"></div>
       </div>
-      <nav className="z-60  nav bg-[#252639] text-3xl absolute top-6 left-1/2 -translate-x-1/2 w-[90%] h-12 border border-white p-2 flex justify-center items-center rounded-sm">
+      <nav className="z-60  nav bg-[#252639] text-3xl absolute top-1 left-1/2 -translate-x-1/2 w-[90%] h-12 border border-white p-2 flex justify-center items-center rounded-sm">
         <h1 className="text-[.9rem] text-center sora-bold tracking-wide text-wrap text-[#FF6D01]">
           Transform Your Videos into Scroll-Stopping Content
         </h1>
@@ -108,7 +108,7 @@ const page = () => {
           <h1 className="text-[1.6rem] sora-bold ">Book A Call Now</h1>
         </div>
       </Link>
-      <section className="z-50 relative page_1  pt-16 w-screen min-h-screen flex flex-col items-center justify-start">
+      <section className="z-50 relative page_1  pt-[55px] w-screen min-h-screen flex flex-col items-center justify-start">
         <div className="home-content flex w-full flex-col gap-4 h-[auto] mt-10">
           <div className="headings flex-2">
             <div className="heading">
