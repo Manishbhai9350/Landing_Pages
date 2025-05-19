@@ -507,7 +507,7 @@ const page = () => {
       <section className="faqs w-full">
         <FAQ />
       </section>
-      <div className="wa-cn relative z-50 w-full h-[auto] mb-[70px] flex justify-center my-4">
+      <div className="wa-cn relative z-50 w-full h-[auto] mb-[90px] flex justify-center my-4">
         <div className="wa-cta mx-4 cursor-pointer leading-none flex flex-col justify-center items-center  w-[90%] h-[70px] bg-green-400 rounded-full">
           <a
             href="https://wa.me/9867009961"
