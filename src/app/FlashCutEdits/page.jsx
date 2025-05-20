@@ -57,11 +57,20 @@ const page = () => {
   const WAbtnRef = useRef(null);
 
   useGSAP(() => {
-    gsap.fromTo(WAbtnRef.current,{
-       x:-20
-     },{
-       x:20,duration:1,repeat:-1,yoyo:true,ease:"power2",yoyoEase:"power2"
-     })
+    gsap.fromTo(
+      WAbtnRef.current,
+      {
+        x: -20,
+      },
+      {
+        x: 20,
+        duration: 1,
+        repeat: -1,
+        yoyo: true,
+        ease: "power2",
+        yoyoEase: "power2",
+      }
+    );
     gsap.fromTo(
       BookCallRef.current,
       {
@@ -133,7 +142,7 @@ const page = () => {
               </h1>
             </div>
           </div>
-          <div className="video relative w-full h-[250px] md:h-[400px] bg-amber-700">
+          <div className="video lg:hidden relative w-full h-[250px] md:h-[400px] bg-amber-700">
             <iframe
               src="https://www.youtube.com/embed/6UlZk2ur0OI"
               title="YouTube video player"
@@ -150,6 +159,89 @@ const page = () => {
             />
           </div>
         </div>
+        <div className="pc-content mt-12 hidden px-[20px] lg:flex justify-center items-center gap-4 relative z-50  w-full">
+          <div className="video relative w-[60vw] h-[400px]">
+            <iframe
+              src="https://www.youtube.com/embed/6UlZk2ur0OI"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+              }}
+            />
+          </div>
+          <div className="offers-con flex-1 bg-[#313335] rounded-2xl py-6">
+            <h1 className="w-full text-center text-4xl sora-bold text-[#E6A966]">
+              Who Is This For
+            </h1>
+            <div className="offers mt-4 flex justify-between items-center px-6">
+              <div className="offer w-full flex flex-col items-start justify-start gap-2">
+                <h1 className=" bg-[#4C4D4D] p-2 w-full  text-[.9rem] gap-4 flex justify-start items-center rounded-sm">
+                  <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
+                    <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
+                      <TiTick size={26} />
+                    </p>
+                  </div>
+                  <p className="opacity-100 sora-medium">Business owners</p>
+                </h1>
+                <h1 className=" bg-[#4C4D4D] p-2 w-full  text-[1.1rem] gap-4 flex justify-start items-center rounded-sm">
+                  <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
+                    <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
+                      <TiTick size={26} />
+                    </p>
+                  </div>
+                  <p className="opacity-100 sora-medium">
+                    Content Creators / YouTubers
+                  </p>
+                </h1>
+                <h1 className=" bg-[#4C4D4D] p-2 w-full  text-[1.1rem] gap-4 flex justify-start items-center rounded-sm">
+                  <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
+                    <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
+                      <TiTick size={26} />
+                    </p>
+                  </div>
+                  <p className="opacity-100 sora-medium">
+                    Coaches & Online Educators
+                  </p>
+                </h1>
+                <h1 className=" bg-[#4C4D4D] p-2 w-full  text-[1.1rem] gap-4 flex justify-start items-center rounded-sm">
+                  <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
+                    <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
+                      <TiTick size={26} />
+                    </p>
+                  </div>
+                  <p className="opacity-100 sora-medium">
+                    E-commerce Brands / Dropshipping Stores
+                  </p>
+                </h1>
+                <h1 className=" bg-[#4C4D4D] p-2 w-full  text-[1.1rem] gap-4 flex justify-start items-center rounded-sm">
+                  <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
+                    <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
+                      <TiTick size={26} />
+                    </p>
+                  </div>
+                  <p className="opacity-100 sora-medium">Real Estate Agents</p>
+                </h1>
+                <h1 className=" bg-[#4C4D4D] p-2 w-full  text-[1.1rem] gap-4 flex justify-start items-center rounded-sm">
+                  <div className="icon w-[30px] h-[30px] aspect-square flex justify-center items-center text-white rounded-full">
+                    <p className="w-full h-full aspect-square flex justify-center items-center text-[#FF6D01]">
+                      <TiTick size={26} />
+                    </p>
+                  </div>
+                  <p className="opacity-100 sora-medium">
+                    Agencies (Marketing, Branding, Influencer)
+                  </p>
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
         <Link
           ref={BookCallRef}
           target="_blank"
@@ -159,7 +251,10 @@ const page = () => {
             <h1 className="text-[1.6rem] sora-bold ">Book A Call Now</h1>
           </div>
         </Link>
-        <div ref={WAbtnRef} className="wa-cta mx-4 relative cursor-pointer leading-none flex flex-col justify-center items-center mt-6 w-[90%] h-[70px] bg-green-400 rounded-full">
+        <div
+          ref={WAbtnRef}
+          className="wa-cta mx-4 relative cursor-pointer leading-none flex flex-col justify-center items-center mt-6 w-[90%] h-[70px] bg-green-400 rounded-full"
+        >
           <a
             href="https://wa.me/9867009961"
             target="_blank"
@@ -172,7 +267,7 @@ const page = () => {
         </div>
       </section>
       <section className="z-50 relative page_2 pt-4 w-screen h-[auto]">
-        <div className="offers-con w-full bg-[#313335] py-6">
+        <div className="offers-con lg:hidden w-full bg-[#313335] py-6">
           <h1 className="w-full text-center text-4xl sora-bold text-[#E6A966]">
             Who Is This For
           </h1>
