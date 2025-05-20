@@ -134,7 +134,7 @@ const page = () => {
                   content creators,
                 </span>{" "}
                 <span className="text-[#ff6647] sora-bold">coaches,</span> and{" "}
-                <span className="text-[#ff6647] sora-bold">business</span>
+                <span className="text-[#ff6647] sora-bold">Business</span>
               </h1>
               <h1 className="text-xl text-center pt-5">
                 <span className="sora-medium">Boost Your Results with </span>
@@ -406,7 +406,7 @@ const page = () => {
                   </p>
                 </div>
                 <p className="opacity-100 sora-medium">
-                  Corporate & business edits
+                  Corporate & Business edits
                 </p>
               </div>
               <div className="px-2 w-fit sm:w-[400px]  text-[1.1rem] gap-2 flex justify-start items-center rounded-sm">
